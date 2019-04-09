@@ -24,25 +24,29 @@
     </style>
   </head>
   <body>
-    <form action="" class="main-form needs-validation">
+    <form action="" class="main-form needs-validation" novalidate>
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" class="form-control" />
-        <small class="form-text text-muted">
-          This should be required
-        </small>
+        <input type="text" name="name" id="name" class="form-control" required />
+        <div class="invalid-feedback">Please enter a valid name</div>
       </div>
+
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" class="form-control" />
+        <input type="email" name="email" id="email" class="form-control" required />
+        <div class="invalid-feedback">Please enter a valid email address</div>
       </div>
+
       <div class="form-group">
         <label for="pnumber">Phone Number</label>
-        <input type="number" name="pnumber" id="pnumber" class="form-control" />
+        <input type="number" name="pnumber" id="pnumber" class="form-control" required />
+        <div class="invalid-feedback">The characters should contain numbers</div>
       </div>
+
       <div class="form-group">
         <label for="DOB">Date of Birth</label>
-        <input type="date" name="dob" id="dob" class="form-control" />
+        <input type="date" name="dob" id="dob" class="form-control" required />
+        <div class="invalid-feedback">It should only contain a date </div>
       </div>
 
       <!-- <div class="form-group">
@@ -69,8 +73,11 @@
 
           // we are using stopPropagation to not sending the request to ajax . 
           // It is a normal form submission but when it will be  valid
+          // Stoping this normal form submission when it is invalid
           event.stopPropagation()
         }
+        // this is the additional class needs to add 
+        form.classList.add('was-validated')
 
       })
 
