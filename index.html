@@ -16,95 +16,64 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+      .main-form {
+        width: 500px;
+        margin: auto;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <h2>Form Validation</h2>
-      <form
-        action="https://reactjs.org/docs/getting-started.html"
-        class="needs-validation"
-        novalidate
-      >
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            placeholder="Enter username"
-            name="name"
-            required
-          />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="Enter email"
-            name="email"
-            required
-          />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
-        </div>
-        <div class="form-group">
-          <label for="pnumber">Phone Number:</label>
-          <input
-            type="number"
-            class="form-control"
-            id="pnumber"
-            placeholder="Enter phone number"
-            name="pnumber"
-            required
-          />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
-        </div>
-        <div class="form-group">
-          <label for="DOB">Date of Birth</label>
-          <input
-            type="date"
-            class="form-control"
-            data-date-format="yyyy/mm/dd"
-            id="dob"
-            placeholder="Enter date of birth"
-            name="dob"
-            required
-          />
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
-        </div>
-        <div class="custom-file" id="customFile" lang="es">
-          <input
-            type="file"
-            class="custom-file-input"
-            id="exampleInputFile"
-            aria-describedby="fileHelp"
-            accept="image/*"
-          />
-          <label class="custom-file-label" for="exampleInputFile">
-            Select profile pic...
-          </label>
-        </div>
-        <div class="form-group form-check">
-          <label class="form-check-label">
-            <input
-              class="form-check-input"
-              type="checkbox"
-              name="remember"
-              required
-            />
-            I agree on blabla.
-            <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Check this checkbox to continue.</div>
-          </label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
+    <form action="" class="main-form needs-validation">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control" />
+        <small class="form-text text-muted">
+          This should be required
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="pnumber">Phone Number</label>
+        <input type="number" name="pnumber" id="pnumber" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="DOB">Date of Birth</label>
+        <input type="date" name="dob" id="dob" class="form-control" />
+      </div>
+
+      <!-- <div class="form-group">
+        <label for="image">Choose profile pic</label>
+        <input type="image" >
+      </div> -->
+
+      <div class="form-check">
+        <input type="checkbox" id="accept-links" class="form-check-input" />
+        <label for="accept-links" class="form-check-label"
+          >Accept links of FB, twitter and Linkedin Account</label
+        >
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      var form = document.querySelector('.needs-validation');
+      
+      form.addEventListener('submit', function(event){
+        // checkValidity is a  builtin function for checking the validity
+        if (form.checkValidity() === false) {
+          // to prevent the default event 
+          event.preventDefault()
+
+          // we are using stopPropagation to not sending the request to ajax . 
+          // It is a normal form submission but when it will be  valid
+          event.stopPropagation()
+        }
+
+      })
+
+    </script>
   </body>
 </html>
