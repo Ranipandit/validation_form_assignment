@@ -17,14 +17,14 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
-      /* .main-form {
-        width: 450px;
-        margin: auto;
-      } */
+      #heading {
+        margin-top: 40px;
+      }
     </style>
   </head>
   <body>
     <div class="container">
+      <h2 id="heading">Form Validation</h2>
       <form action="" class="main-form needs-validation " novalidate>
         <div class="form-group">
           <label for="name">Name</label>
@@ -92,6 +92,8 @@
             class="form-check-input"
             data-toggle="modal"
             data-target="#myModal"
+
+            required
           />
           <label for="accept-links" class="form-check-label"
             >Accept links of FB, twitter and Linkedin Account</label
