@@ -17,70 +17,179 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
-      .main-form {
-        width: 500px;
+      /* .main-form {
+        width: 450px;
         margin: auto;
-      }
+      } */
     </style>
   </head>
   <body>
-    <form action="" class="main-form needs-validation" novalidate>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name" class="form-control" required />
-        <div class="invalid-feedback">Please enter a valid name</div>
-      </div>
+    <div class="container">
+      <form action="" class="main-form needs-validation " novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter a valid name</div>
+        </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" class="form-control" required />
-        <div class="invalid-feedback">Please enter a valid email address</div>
-      </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please enter a valid email address</div>
+        </div>
 
-      <div class="form-group">
-        <label for="pnumber">Phone Number</label>
-        <input type="number" name="pnumber" id="pnumber" class="form-control" required />
-        <div class="invalid-feedback">The characters should contain numbers</div>
-      </div>
+        <div class="form-group">
+          <label for="pnumber">Phone Number</label>
+          <input
+            type="number"
+            name="pnumber"
+            id="pnumber"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">
+            The characters should contain numbers
+          </div>
+        </div>
 
-      <div class="form-group">
-        <label for="DOB">Date of Birth</label>
-        <input type="date" name="dob" id="dob" class="form-control" required />
-        <div class="invalid-feedback">It should only contain a date </div>
-      </div>
+        <div class="form-group">
+          <label for="DOB">Date of Birth</label>
+          <input
+            type="date"
+            name="dob"
+            id="dob"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">It should only contain a date</div>
+        </div>
 
-      <!-- <div class="form-group">
-        <label for="image">Choose profile pic</label>
-        <input type="image" >
-      </div> -->
+        <div class="form-group">
+          <input
+            type="file"
+            name="myImage"
+            accept="image/*"
+            class="form-control-file"
+          />
+        </div>
 
-      <div class="form-check">
-        <input type="checkbox" id="accept-links" class="form-check-input" />
-        <label for="accept-links" class="form-check-label"
-          >Accept links of FB, twitter and Linkedin Account</label
-        >
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+        <div class="form-check form-group">
+          <input
+            type="checkbox"
+            id="accept-links"
+            class="form-check-input"
+            data-toggle="modal"
+            data-target="#myModal"
+          />
+          <label for="accept-links" class="form-check-label"
+            >Accept links of FB, twitter and Linkedin Account</label
+          >
+        </div>
+
+        <!-- extra fields for linkedin, twitter and linkedin  -->
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                  &times;
+                </button>
+              </div>
+
+              <!-- Modal body -->
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="facebook">Facebook Url</label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="facebook"
+                    name="facebook"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    It required a facebook profile link
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="twitter">Twitter Url</label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="twitter"
+                    name="twitter"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    It required a twitter profile link
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="linkedin">Linkedin Url</label>
+                  <input
+                    type="url"
+                    class="form-control"
+                    id="linkedin"
+                    name="linkedin"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    It required a linkedin profile link
+                  </div>
+                </div>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+      </form>
+    </div>
+
     <script>
-      var form = document.querySelector('.needs-validation');
-      
-      form.addEventListener('submit', function(event){
+      var form = document.querySelector(".needs-validation");
+
+      form.addEventListener("submit", function(event) {
         // checkValidity is a  builtin function for checking the validity
         if (form.checkValidity() === false) {
-          // to prevent the default event 
-          event.preventDefault()
+          // to prevent the default event
+          event.preventDefault();
 
-          // we are using stopPropagation to not sending the request to ajax . 
+          // we are using stopPropagation to not sending the request to ajax .
           // It is a normal form submission but when it will be  valid
           // Stoping this normal form submission when it is invalid
-          event.stopPropagation()
+          event.stopPropagation();
         }
-        // this is the additional class needs to add 
-        form.classList.add('was-validated')
-
-      })
-
+        // this is the additional class needs to add
+        form.classList.add("was-validated");
+      });
     </script>
   </body>
 </html>
